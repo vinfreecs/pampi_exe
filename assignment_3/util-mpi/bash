@@ -1,0 +1,24 @@
+=== JOB_STATISTICS ===
+=== current date     : Wed Nov  5 13:26:10 CET 2025
+= Job-ID             : 3043776 on fritz
+= Job-Name           : bench_internode
+= Job-Command        : /home/hpc/pavl/pavl166v/pampi_exe/assignment_3/util-mpi/bash
+= Initial workdir    : /home/hpc/pavl/pavl166v/pampi_exe/assignment_3/util-mpi/bash
+= Queue/Partition    : multinode
+= Slurm account      : pavl with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 00:00:34
+= Total RAM usage    : 0.0 GiB 
+= Node list          : f[0274,0976,0979]
+= Subm/Elig/Start/End: 2025-11-05T13:25:33 / 2025-11-05T13:25:33 / 2025-11-05T13:25:33 / 2025-11-05T13:26:07
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             0.0K  1000.0G  1500.0G        N/A       1    5,000K   7,500K        N/A    
+    /home/hpc            1981.6M   104.9G   209.7G        N/A   7,563      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================

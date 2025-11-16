@@ -1,0 +1,128 @@
+### Starting TaskPrologue of job 3049610 on f1074 at Sun Nov  9 12:53:32 CET 2025
+#   SLURM_JOB_NODELIST=f1074
+#   SLURM_JOB_NUM_NODES=1
+#   SLURM_NTASKS=72
+#   SLURM_NPROCS=72
+#   SLURM_TASKS_PER_NODE=72
+#   SLURM_JOB_CPUS_PER_NODE=72
+#   SLURM_EXPORT_ENV=NONE
+Running on cores 0-71 with governor powersave
+### Finished TaskPrologue
+NOTE: If and ONLY IF you want to use likwid-perfctr you have to add '--constraint=hwperf' to your batch jobs.
+      likwid-features and likwid-setFrequencies are not available. The frequency/governor can be set using SLURM features.
+/var/tmp/slurmd_spool/job3049610/slurm_script: line 19: cd: /home/hpc/pavl/pavl166v/PAMPI/pampi-tutorial/ex4/dmvm/mpi: No such file or directory
+===>  CLEAN
+===>  DIST CLEAN
+===>  COMPILE  build/ICX/timing.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/timing.c -o build/ICX/timing.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  COMPILE  build/ICX/dmvm_serial.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/dmvm_serial.c -o build/ICX/dmvm_serial.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  COMPILE  build/ICX/main.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/main.c -o build/ICX/main.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  COMPILE  build/ICX/affinity.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/affinity.c -o build/ICX/affinity.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  COMPILE  build/ICX/allocate.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/allocate.c -o build/ICX/allocate.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  COMPILE  build/ICX/dmvm.o
+mpiicx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wunused-command-line-argument ./src/dmvm.c -o build/ICX/dmvm.o
+icx: warning: -Xlinker --enable-new-dtags: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker -rpath: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -Xlinker /apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpifort: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lmpi: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -ldl: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lrt: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: -lpthread: 'linker' input unused [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib/release' [-Wunused-command-line-argument]
+icx: warning: argument unused during compilation: '-L/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/lib' [-Wunused-command-line-argument]
+===>  LINKING  exe-ICX
+rm: cannot remove 'result_bench_memdomain.csv': No such file or directory
+[proxy:0:0@f1074.nhr.fau.de] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:152): execvp error on file ./exe-ICX (No such file or directory)
+[proxy:0:0@f1074.nhr.fau.de] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:152): execvp error on file ./exe-ICX (No such file or directory)
+[proxy:0:0@f1074.nhr.fau.de] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:152): execvp error on file ./exe-ICX (No such file or directory)
+=== JOB_STATISTICS ===
+=== current date     : Sun Nov  9 15:11:43 CET 2025
+= Job-ID             : 3049610 on fritz
+= Job-Name           : bench_memdomain
+= Job-Command        : /home/hpc/pavl/pavl166v/pampi_exe/assignment_3/dmvm-skeleton/job2.sh
+= Initial workdir    : /home/hpc/pavl/pavl166v/pampi_exe/assignment_3/dmvm-skeleton
+= Queue/Partition    : singlenode
+= Slurm account      : pavl with QOS=normal
+= Requested resources:  for 10:00:00
+= Elapsed runtime    : 02:18:13
+= Total RAM usage    : 18.3 GiB 
+= Node list          : f1074
+= Subm/Elig/Start/End: 2025-11-09T12:53:29 / 2025-11-09T12:53:29 / 2025-11-09T12:53:29 / 2025-11-09T15:11:42
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             0.0K  1000.0G  1500.0G        N/A       1    5,000K   7,500K        N/A    
+    /home/hpc            1983.6M   104.9G   209.7G        N/A   7,793      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================

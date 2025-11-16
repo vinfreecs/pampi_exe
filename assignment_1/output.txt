@@ -1,0 +1,46 @@
+### Starting TaskPrologue of job 3004687 on f0329 at Sun Oct 19 21:09:19 CEST 2025
+#   SLURM_JOB_NODELIST=f0329
+#   SLURM_JOB_NUM_NODES=1
+#   SLURM_NTASKS=
+#   SLURM_NPROCS=
+#   SLURM_TASKS_PER_NODE=72
+#   SLURM_JOB_CPUS_PER_NODE=72
+#   SLURM_EXPORT_ENV=NONE
+Running on cores 0-71 with governor powersave
+### Finished TaskPrologue
+===>  COMPILE  build/ICX/timing.o
+icx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -fast -xHost -qopt-streaming-stores=always -std=c99 -ffreestanding  ./src/timing.c -o build/ICX/timing.o
+===>  COMPILE  build/ICX/main.o
+icx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -fast -xHost -qopt-streaming-stores=always -std=c99 -ffreestanding  ./src/main.c -o build/ICX/main.o
+===>  COMPILE  build/ICX/affinity.o
+icx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -fast -xHost -qopt-streaming-stores=always -std=c99 -ffreestanding  ./src/affinity.c -o build/ICX/affinity.o
+===>  COMPILE  build/ICX/allocate.o
+icx -c  -D_GNU_SOURCE -DARRAY_ALIGNMENT=64  -I./src/includes -I./build/ICX -fast -xHost -qopt-streaming-stores=always -std=c99 -ffreestanding  ./src/allocate.c -o build/ICX/allocate.o
+===>  LINKING  exe-ICX
+Hello , vinay , ! 
+The node : f0329
+===>  CLEAN
+=== JOB_STATISTICS ===
+=== current date     : Sun Oct 19 21:09:21 CEST 2025
+= Job-ID             : 3004687 on fritz
+= Job-Name           : job_assign_1
+= Job-Command        : /home/hpc/pavl/pavl166v/pampi_exe/c-skeleton/job.sh
+= Initial workdir    : /home/hpc/pavl/pavl166v/pampi_exe/c-skeleton
+= Queue/Partition    : singlenode
+= Slurm account      : pavl with QOS=normal
+= Requested resources:  for 00:05:00
+= Elapsed runtime    : 00:00:05
+= Total RAM usage    : 0.1 GiB 
+= Node list          : f0329
+= Subm/Elig/Start/End: 2025-10-19T21:09:16 / 2025-10-19T21:09:16 / 2025-10-19T21:09:16 / 2025-10-19T21:09:21
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             0.0K  1000.0G  1500.0G        N/A       1    5,000K   7,500K        N/A    
+    /home/hpc             895.7M   104.9G   209.7G        N/A   2,550      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================
