@@ -16,6 +16,6 @@ jmax       100		# number of interior cells in y-direction
 
 itermax  1000000		# maximal number of pressure iteration in one time step
 eps      0.000001	# stopping tolerance for pressure iteration
-omg      1.9		# relaxation parameter for SOR iteration
+omg      1.2		# relaxation parameter for SOR iteration
 
 #===============================================================================

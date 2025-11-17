@@ -17,6 +17,9 @@
 #define P(i, j)   p[(j) * (imax + 2) + (i)]
 #define RHS(i, j) rhs[(j) * (imax + 2) + (i)]
 
+//change this to 1 for RED black sor solver or set in compilation step
+#define RED_BLACK_SOLVER 0
+
 static int sizeOfRank(int rank, int size, int N)
 {
     return N/size + ((N%size)>rank ? 1 : 0);
@@ -189,19 +192,23 @@ void solve(Solver* solver)
         // adapt for mpi
         for (int j = 1; j < jmaxLocal + 1; j++) {
             for (int i = 1; i < imax + 1; i++) {
+                #if RED_BLACK_SOLVER
                 if((i+j)%2 == 0){
-
+                #endif
                     double r = RHS(i, j) -
                                ((P(i - 1, j) - 2.0 * P(i, j) + P(i + 1, j)) * idx2 +
                                    (P(i, j - 1) - 2.0 * P(i, j) + P(i, j + 1)) * idy2);
     
                     P(i, j) -= (factor * r);
                     res += (r * r);
+                #if RED_BLACK_SOLVER
                 }
+                #endif
             }
         }
 
-        //can just hop over o=alternate i instead of doing the mod op
+        //can just hop over o=alternate i instead of doing the mod op basically we can skip the if condition
+    #if RED_BLACK_SOLVER 
         exchange(solver);
         for (int j = 1; j < jmaxLocal + 1; j++) {
             for (int i = 1; i < imax + 1; i++) {
@@ -216,9 +223,9 @@ void solve(Solver* solver)
                 }
             }
         }
-
+    #endif
         // adapt for mpi
-
+        // here we are applying for the halos of each ranks 
         // Apply left/right physical boundaries (all ranks do this)
         for (int j = 1; j < jmaxLocal + 1; j++) {
             P(0, j)        = P(1, j);
@@ -238,15 +245,6 @@ void solve(Solver* solver)
                 P(i, jmaxLocal + 1) = P(i, jmaxLocal);
             }
         }
-        // for (int i = 1; i < imax + 1; i++) {
-        //     P(i, 0)        = P(i, 1);
-        //     P(i, jmaxLocal + 1) = P(i, jmaxLocal);
-        // }
-
-        // for (int j = 1; j < jmaxLocal + 1; j++) {
-        //     P(0, j)        = P(1, j);
-        //     P(imax + 1, j) = P(imax, j);
-        // }
 
         MPI_Allreduce(MPI_IN_PLACE, &res, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
         res = res / (double)(imax * jmax);

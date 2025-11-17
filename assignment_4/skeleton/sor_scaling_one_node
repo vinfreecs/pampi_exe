@@ -1,0 +1,218 @@
+scaling of SOR in 1 node across 1-72 cores part 1 a)
+Running SOR on 1 cores
+Solver took 4321 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.46s
+Running SOR on 2 cores
+Solver took 4484 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.26s
+Running SOR on 3 cores
+Solver took 4648 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.18s
+Running SOR on 4 cores
+Solver took 4811 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.15s
+Running SOR on 5 cores
+Solver took 4977 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.13s
+Running SOR on 6 cores
+Solver took 5139 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.12s
+Running SOR on 7 cores
+Solver took 5310 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.11s
+Running SOR on 8 cores
+Solver took 5454 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.11s
+Running SOR on 9 cores
+Solver took 5624 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.10s
+Running SOR on 10 cores
+Solver took 5776 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.09s
+Running SOR on 11 cores
+Solver took 100127 iterations to reach -nan using omega=1.800000
+Walltime 1.29s
+Running SOR on 12 cores
+Solver took 29969 iterations to reach -nan using omega=1.800000
+Walltime 0.38s
+Running SOR on 13 cores
+Solver took 28773 iterations to reach -nan using omega=1.800000
+Walltime 0.34s
+Running SOR on 14 cores
+Solver took 22312 iterations to reach -nan using omega=1.800000
+Walltime 0.26s
+Running SOR on 15 cores
+Solver took 11500 iterations to reach -nan using omega=1.800000
+Walltime 0.14s
+Running SOR on 16 cores
+Solver took 9483 iterations to reach -nan using omega=1.800000
+Walltime 0.12s
+Running SOR on 17 cores
+Solver took 9354 iterations to reach -nan using omega=1.800000
+Walltime 0.12s
+Running SOR on 18 cores
+Solver took 7694 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 19 cores
+Solver took 7205 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 20 cores
+Solver took 7076 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 21 cores
+Solver took 5788 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 22 cores
+Solver took 5140 iterations to reach -nan using omega=1.800000
+Walltime 5.53s
+Running SOR on 23 cores
+Solver took 5024 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 24 cores
+Solver took 4978 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 25 cores
+Solver took 4957 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 26 cores
+Solver took 4110 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 27 cores
+Solver took 3358 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 28 cores
+Solver took 3231 iterations to reach -nan using omega=1.800000
+Walltime 0.05s
+Running SOR on 29 cores
+Solver took 3187 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 30 cores
+Solver took 3162 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 31 cores
+Solver took 3156 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 32 cores
+Solver took 3139 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 33 cores
+Solver took 3140 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 34 cores
+Solver took 3142 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 35 cores
+Solver took 3145 iterations to reach -nan using omega=1.800000
+Walltime 0.06s
+Running SOR on 36 cores
+Solver took 3149 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 37 cores
+Solver took 3154 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 38 cores
+Solver took 3159 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 39 cores
+Solver took 3165 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 40 cores
+Solver took 3158 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 41 cores
+Solver took 3149 iterations to reach -nan using omega=1.800000
+Walltime 0.07s
+Running SOR on 42 cores
+Solver took 3142 iterations to reach -nan using omega=1.800000
+Walltime 0.08s
+Running SOR on 43 cores
+Solver took 3141 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 44 cores
+Solver took 3138 iterations to reach -nan using omega=1.800000
+Walltime 0.09s
+Running SOR on 45 cores
+Solver took 3136 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 46 cores
+Solver took 3133 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 47 cores
+Solver took 3137 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 48 cores
+Solver took 3130 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 49 cores
+Solver took 3136 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 50 cores
+Solver took 3133 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 51 cores
+Solver took 3134 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 52 cores
+Solver took 1639 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 53 cores
+Solver took 1441 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 54 cores
+Solver took 1376 iterations to reach -nan using omega=1.800000
+Walltime 0.11s
+Running SOR on 55 cores
+Solver took 1346 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+Running SOR on 56 cores
+Solver took 1331 iterations to reach -nan using omega=1.800000
+Walltime 0.11s
+Running SOR on 57 cores
+Solver took 1320 iterations to reach -nan using omega=1.800000
+Walltime 0.11s
+Running SOR on 58 cores
+Solver took 1313 iterations to reach -nan using omega=1.800000
+Walltime 0.12s
+Running SOR on 59 cores
+Solver took 1308 iterations to reach -nan using omega=1.800000
+Walltime 0.12s
+Running SOR on 60 cores
+Solver took 1305 iterations to reach -nan using omega=1.800000
+Walltime 0.12s
+Running SOR on 61 cores
+Solver took 1303 iterations to reach -nan using omega=1.800000
+Walltime 0.13s
+Running SOR on 62 cores
+Solver took 1301 iterations to reach -nan using omega=1.800000
+Walltime 0.13s
+Running SOR on 63 cores
+Solver took 1301 iterations to reach -nan using omega=1.800000
+Walltime 0.13s
+Running SOR on 64 cores
+Solver took 1300 iterations to reach -nan using omega=1.800000
+Walltime 0.14s
+Running SOR on 65 cores
+Solver took 1299 iterations to reach -nan using omega=1.800000
+Walltime 0.14s
+Running SOR on 66 cores
+Solver took 1298 iterations to reach -nan using omega=1.800000
+Walltime 0.14s
+Running SOR on 67 cores
+Solver took 1298 iterations to reach -nan using omega=1.800000
+Walltime 0.13s
+Running SOR on 68 cores
+Solver took 1297 iterations to reach -nan using omega=1.800000
+Walltime 0.16s
+Running SOR on 69 cores
+Solver took 1297 iterations to reach -nan using omega=1.800000
+Walltime 0.15s
+Running SOR on 70 cores
+Solver took 1296 iterations to reach -nan using omega=1.800000
+Walltime 0.25s
+Running SOR on 71 cores
+Solver took 1296 iterations to reach -nan using omega=1.800000
+Walltime 0.24s
+Running SOR on 72 cores
+Solver took 1296 iterations to reach -nan using omega=1.800000
+Walltime 0.23s
+
