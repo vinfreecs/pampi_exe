@@ -1,0 +1,546 @@
+scaling of SOR in 1 node across 1-72 cores domain 100x100
+Running SOR on 1 cores
+Solver took 22132 iterations to reach 0.000001 using omega=1.200000
+Walltime 2.34s
+Running SOR on 2 cores
+Solver took 22229 iterations to reach 0.000001 using omega=1.200000
+Walltime 1.21s
+Running SOR on 3 cores
+Solver took 22349 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.84s
+Running SOR on 4 cores
+Solver took 22525 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.65s
+Running SOR on 5 cores
+Solver took 22682 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.54s
+Running SOR on 6 cores
+Solver took 22783 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.48s
+Running SOR on 7 cores
+Solver took 22973 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.43s
+Running SOR on 8 cores
+Solver took 23094 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.39s
+Running SOR on 9 cores
+Solver took 23320 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.36s
+Running SOR on 10 cores
+Solver took 23447 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.33s
+Running SOR on 11 cores
+Solver took 23623 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.32s
+Running SOR on 12 cores
+Solver took 23682 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.30s
+Running SOR on 13 cores
+Solver took 23715 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 14 cores
+Solver took 24093 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 15 cores
+Solver took 23964 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.26s
+Running SOR on 16 cores
+Solver took 24322 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.27s
+Running SOR on 17 cores
+Solver took 24585 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.26s
+Running SOR on 18 cores
+Solver took 24426 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.24s
+Running SOR on 19 cores
+Solver took 24741 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.26s
+Running SOR on 20 cores
+Solver took 24964 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.24s
+Running SOR on 21 cores
+Solver took 24813 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.24s
+Running SOR on 22 cores
+Solver took 24976 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.25s
+Running SOR on 23 cores
+Solver took 25229 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 24 cores
+Solver took 25591 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.24s
+Running SOR on 25 cores
+Solver took 25719 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.22s
+Running SOR on 26 cores
+Solver took 25614 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.20s
+Running SOR on 27 cores
+Solver took 25731 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 28 cores
+Solver took 25831 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 29 cores
+Solver took 26029 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 30 cores
+Solver took 26221 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 31 cores
+Solver took 26516 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.22s
+Running SOR on 32 cores
+Solver took 26806 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.22s
+Running SOR on 33 cores
+Solver took 26925 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 34 cores
+Solver took 26950 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 35 cores
+Solver took 26875 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.21s
+Running SOR on 36 cores
+Solver took 27108 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.22s
+Running SOR on 37 cores
+Solver took 27458 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 38 cores
+Solver took 27603 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 39 cores
+Solver took 27602 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 40 cores
+Solver took 27647 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 41 cores
+Solver took 27780 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.22s
+Running SOR on 42 cores
+Solver took 27934 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.23s
+Running SOR on 43 cores
+Solver took 28093 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.25s
+Running SOR on 44 cores
+Solver took 28277 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.25s
+Running SOR on 45 cores
+Solver took 28510 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.27s
+Running SOR on 46 cores
+Solver took 28771 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.27s
+Running SOR on 47 cores
+Solver took 29004 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.27s
+Running SOR on 48 cores
+Solver took 29178 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 49 cores
+Solver took 29315 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.26s
+Running SOR on 50 cores
+Solver took 29471 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 51 cores
+Solver took 29660 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 52 cores
+Solver took 29829 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.29s
+Running SOR on 53 cores
+Solver took 29975 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.28s
+Running SOR on 54 cores
+Solver took 30095 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.29s
+Running SOR on 55 cores
+Solver took 30194 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.29s
+Running SOR on 56 cores
+Solver took 30279 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.29s
+Running SOR on 57 cores
+Solver took 30362 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.31s
+Running SOR on 58 cores
+Solver took 30455 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.30s
+Running SOR on 59 cores
+Solver took 30567 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.31s
+Running SOR on 60 cores
+Solver took 30701 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.32s
+Running SOR on 61 cores
+Solver took 30851 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.32s
+Running SOR on 62 cores
+Solver took 31012 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.32s
+Running SOR on 63 cores
+Solver took 31177 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.43s
+Running SOR on 64 cores
+Solver took 31342 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.34s
+Running SOR on 65 cores
+Solver took 31506 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.30s
+Running SOR on 66 cores
+Solver took 31667 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.31s
+Running SOR on 67 cores
+Solver took 31827 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.32s
+Running SOR on 68 cores
+Solver took 31985 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.33s
+Running SOR on 69 cores
+Solver took 32141 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.37s
+Running SOR on 70 cores
+Solver took 32295 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.42s
+Running SOR on 71 cores
+Solver took 32448 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.38s
+Running SOR on 72 cores
+Solver took 32600 iterations to reach 0.000001 using omega=1.200000
+Walltime 0.38s
+scaling of SOR in 1 node across 1-72 cores domain 400x400
+Running SOR on 1 cores
+Solver took 99407 iterations to reach 0.000001 using omega=1.700000
+Walltime 177.01s
+Running SOR on 2 cores
+Solver took 99820 iterations to reach 0.000001 using omega=1.700000
+Walltime 89.00s
+Running SOR on 3 cores
+Solver took 100367 iterations to reach 0.000001 using omega=1.700000
+Walltime 59.99s
+Running SOR on 4 cores
+Solver took 101084 iterations to reach 0.000001 using omega=1.700000
+Walltime 45.23s
+Running SOR on 5 cores
+Solver took 101749 iterations to reach 0.000001 using omega=1.700000
+Walltime 36.48s
+Running SOR on 6 cores
+Solver took 102371 iterations to reach 0.000001 using omega=1.700000
+Walltime 30.83s
+Running SOR on 7 cores
+Solver took 103085 iterations to reach 0.000001 using omega=1.700000
+Walltime 26.82s
+Running SOR on 8 cores
+Solver took 103711 iterations to reach 0.000001 using omega=1.700000
+Walltime 23.41s
+Running SOR on 9 cores
+Solver took 104319 iterations to reach 0.000001 using omega=1.700000
+Walltime 21.24s
+Running SOR on 10 cores
+Solver took 105010 iterations to reach 0.000001 using omega=1.700000
+Walltime 19.05s
+Running SOR on 11 cores
+Solver took 105599 iterations to reach 0.000001 using omega=1.700000
+Walltime 17.76s
+Running SOR on 12 cores
+Solver took 106249 iterations to reach 0.000001 using omega=1.700000
+Walltime 16.42s
+Running SOR on 13 cores
+Solver took 107053 iterations to reach 0.000001 using omega=1.700000
+Walltime 15.14s
+Running SOR on 14 cores
+Solver took 107501 iterations to reach 0.000001 using omega=1.700000
+Walltime 14.25s
+Running SOR on 15 cores
+Solver took 108120 iterations to reach 0.000001 using omega=1.700000
+Walltime 13.39s
+Running SOR on 16 cores
+Solver took 108896 iterations to reach 0.000001 using omega=1.700000
+Walltime 12.54s
+Running SOR on 17 cores
+Solver took 109435 iterations to reach 0.000001 using omega=1.700000
+Walltime 12.08s
+Running SOR on 18 cores
+Solver took 110202 iterations to reach 0.000001 using omega=1.700000
+Walltime 11.67s
+Running SOR on 19 cores
+Solver took 110846 iterations to reach 0.000001 using omega=1.700000
+Walltime 11.17s
+Running SOR on 20 cores
+Solver took 111478 iterations to reach 0.000001 using omega=1.700000
+Walltime 10.37s
+Running SOR on 21 cores
+Solver took 112133 iterations to reach 0.000001 using omega=1.700000
+Walltime 10.31s
+Running SOR on 22 cores
+Solver took 112817 iterations to reach 0.000001 using omega=1.700000
+Walltime 9.96s
+Running SOR on 23 cores
+Solver took 113241 iterations to reach 0.000001 using omega=1.700000
+Walltime 9.52s
+Running SOR on 24 cores
+Solver took 113782 iterations to reach 0.000001 using omega=1.700000
+Walltime 9.09s
+Running SOR on 25 cores
+Solver took 114700 iterations to reach 0.000001 using omega=1.700000
+Walltime 8.65s
+Running SOR on 26 cores
+Solver took 115138 iterations to reach 0.000001 using omega=1.700000
+Walltime 8.66s
+Running SOR on 27 cores
+Solver took 116349 iterations to reach 0.000001 using omega=1.700000
+Walltime 8.24s
+Running SOR on 28 cores
+Solver took 116494 iterations to reach 0.000001 using omega=1.700000
+Walltime 8.23s
+Running SOR on 29 cores
+Solver took 117490 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.78s
+Running SOR on 30 cores
+Solver took 117686 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.79s
+Running SOR on 31 cores
+Solver took 119263 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.41s
+Running SOR on 32 cores
+Solver took 118935 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.37s
+Running SOR on 33 cores
+Solver took 119904 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.42s
+Running SOR on 34 cores
+Solver took 120434 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.97s
+Running SOR on 35 cores
+Solver took 120818 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.99s
+Running SOR on 36 cores
+Solver took 121822 iterations to reach 0.000001 using omega=1.700000
+Walltime 7.00s
+Running SOR on 37 cores
+Solver took 122715 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.57s
+Running SOR on 38 cores
+Solver took 122657 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.57s
+Running SOR on 39 cores
+Solver took 123520 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.59s
+Running SOR on 40 cores
+Solver took 124326 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.17s
+Running SOR on 41 cores
+Solver took 124702 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.12s
+Running SOR on 42 cores
+Solver took 125149 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.18s
+Running SOR on 43 cores
+Solver took 125903 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.23s
+Running SOR on 44 cores
+Solver took 126922 iterations to reach 0.000001 using omega=1.700000
+Walltime 6.22s
+Running SOR on 45 cores
+Solver took 128344 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.92s
+Running SOR on 46 cores
+Solver took 127368 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.75s
+Running SOR on 47 cores
+Solver took 128273 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.81s
+Running SOR on 48 cores
+Solver took 128958 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.85s
+Running SOR on 49 cores
+Solver took 130096 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.91s
+Running SOR on 50 cores
+Solver took 130715 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.46s
+Running SOR on 51 cores
+Solver took 131813 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.53s
+Running SOR on 52 cores
+Solver took 130975 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.40s
+Running SOR on 53 cores
+Solver took 131864 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.42s
+Running SOR on 54 cores
+Solver took 132651 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.45s
+Running SOR on 55 cores
+Solver took 133489 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.49s
+Running SOR on 56 cores
+Solver took 134558 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.56s
+Running SOR on 57 cores
+Solver took 135157 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.29s
+Running SOR on 58 cores
+Solver took 136588 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.13s
+Running SOR on 59 cores
+Solver took 135851 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.09s
+Running SOR on 60 cores
+Solver took 135744 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.11s
+Running SOR on 61 cores
+Solver took 136702 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.12s
+Running SOR on 62 cores
+Solver took 137602 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.11s
+Running SOR on 63 cores
+Solver took 138231 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.25s
+Running SOR on 64 cores
+Solver took 139191 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.22s
+Running SOR on 65 cores
+Solver took 140219 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.11s
+Running SOR on 66 cores
+Solver took 140869 iterations to reach 0.000001 using omega=1.700000
+Walltime 5.12s
+Running SOR on 67 cores
+Solver took 141961 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.63s
+Running SOR on 68 cores
+Solver took 142651 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.64s
+Running SOR on 69 cores
+Solver took 142017 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.66s
+Running SOR on 70 cores
+Solver took 141831 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.75s
+Running SOR on 71 cores
+Solver took 142427 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.70s
+Running SOR on 72 cores
+Solver took 143388 iterations to reach 0.000001 using omega=1.700000
+Walltime 4.73s
+scaling of SOR in 1 node across 1-72 cores domain 600x600
+Running SOR on 1 cores
+Solver took 222277 iterations to reach 0.000001 using omega=1.700000
+Walltime 895.71s
+Running SOR on 2 cores
+Solver took 222890 iterations to reach 0.000001 using omega=1.700000
+Walltime 449.27s
+Running SOR on 3 cores
+Solver took 223718 iterations to reach 0.000001 using omega=1.700000
+Walltime 301.23s
+Running SOR on 4 cores
+Solver took 224785 iterations to reach 0.000001 using omega=1.700000
+Walltime 227.42s
+Running SOR on 5 cores
+Solver took 225785 iterations to reach 0.000001 using omega=1.700000
+Walltime 182.79s
+Running SOR on 6 cores
+Solver took 226771 iterations to reach 0.000001 using omega=1.700000
+Walltime 153.02s
+Running SOR on 7 cores
+Solver took 227737 iterations to reach 0.000001 using omega=1.700000
+Walltime 132.28s
+Running SOR on 8 cores
+Solver took 228732 iterations to reach 0.000001 using omega=1.700000
+Walltime 115.94s
+Running SOR on 9 cores
+Solver took 229614 iterations to reach 0.000001 using omega=1.700000
+Walltime 104.13s
+Running SOR on 10 cores
+Solver took 230684 iterations to reach 0.000001 using omega=1.700000
+Walltime 93.71s
+Running SOR on 11 cores
+Solver took 231568 iterations to reach 0.000001 using omega=1.700000
+Walltime 86.33s
+Running SOR on 12 cores
+Solver took 232633 iterations to reach 0.000001 using omega=1.700000
+Walltime 78.99s
+Running SOR on 13 cores
+Solver took 233681 iterations to reach 0.000001 using omega=1.700000
+Walltime 74.53s
+Running SOR on 14 cores
+Solver took 235113 iterations to reach 0.000001 using omega=1.700000
+Walltime 68.82s
+Running SOR on 15 cores
+Solver took 235552 iterations to reach 0.000001 using omega=1.700000
+Walltime 64.18s
+Running SOR on 16 cores
+Solver took 236402 iterations to reach 0.000001 using omega=1.700000
+Walltime 61.26s
+Running SOR on 17 cores
+Solver took 237417 iterations to reach 0.000001 using omega=1.700000
+Walltime 58.28s
+Running SOR on 18 cores
+Solver took 238326 iterations to reach 0.000001 using omega=1.700000
+Walltime 55.36s
+Running SOR on 19 cores
+Solver took 239208 iterations to reach 0.000001 using omega=1.700000
+Walltime 52.42s
+Running SOR on 20 cores
+Solver took 240408 iterations to reach 0.000001 using omega=1.700000
+Walltime 49.53s
+Running SOR on 21 cores
+Solver took 241126 iterations to reach 0.000001 using omega=1.700000
+Walltime 48.02s
+Running SOR on 22 cores
+Solver took 242277 iterations to reach 0.000001 using omega=1.700000
+Walltime 46.61s
+Running SOR on 23 cores
+Solver took 243383 iterations to reach 0.000001 using omega=1.700000
+Walltime 45.08s
+Running SOR on 24 cores
+Solver took 244287 iterations to reach 0.000001 using omega=1.700000
+Walltime 42.19s
+Running SOR on 25 cores
+Solver took 245256 iterations to reach 0.000001 using omega=1.700000
+Walltime 40.64s
+Running SOR on 26 cores
+Solver took 246282 iterations to reach 0.000001 using omega=1.700000
+Walltime 40.67s
+Running SOR on 27 cores
+Solver took 247226 iterations to reach 0.000001 using omega=1.700000
+Walltime 39.22s
+Running SOR on 28 cores
+Solver took 247874 iterations to reach 0.000001 using omega=1.700000
+Walltime 37.70s
+Running SOR on 29 cores
+Solver took 248720 iterations to reach 0.000001 using omega=1.700000
+Walltime 36.21s
+Running SOR on 30 cores
+Solver took 250096 iterations to reach 0.000001 using omega=1.700000
+Walltime 34.77s
+Running SOR on 31 cores
+Solver took 250727 iterations to reach 0.000001 using omega=1.700000
+Walltime 34.76s
+Running SOR on 32 cores
+Solver took 252007 iterations to reach 0.000001 using omega=1.700000
+Walltime 33.29s
+Running SOR on 33 cores
+Solver took 253109 iterations to reach 0.000001 using omega=1.700000
+Walltime 33.44s
+Running SOR on 34 cores
+Solver took 253322 iterations to reach 0.000001 using omega=1.700000
+Walltime 31.90s
+Running SOR on 36 cores
+Solver took 255220 iterations to reach 0.000001 using omega=1.700000
+Walltime 30.43s
+Running SOR on 54 cores
+Solver took 273368 iterations to reach 0.000001 using omega=1.700000
+Walltime 23.60s
+Running SOR on 72 cores
+Solver took 289382 iterations to reach 0.000001 using omega=1.700000
+Walltime 19.66s

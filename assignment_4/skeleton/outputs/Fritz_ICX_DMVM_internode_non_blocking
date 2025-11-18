@@ -1,0 +1,38 @@
+### Starting TaskPrologue of job 3079210 on f0323 at Tue Nov 18 00:21:01 CET 2025
+#   SLURM_JOB_NODELIST=f0323
+#   SLURM_JOB_NUM_NODES=1
+#   SLURM_NTASKS=72
+#   SLURM_NPROCS=72
+#   SLURM_TASKS_PER_NODE=72
+#   SLURM_JOB_CPUS_PER_NODE=72
+#   SLURM_EXPORT_ENV=NONE
+Running on cores 0-71 with governor powersave
+### Finished TaskPrologue
+NOTE: If and ONLY IF you want to use likwid-perfctr you have to add '--constraint=hwperf' to your batch jobs.
+      likwid-features and likwid-setFrequencies are not available. The frequency/governor can be set using SLURM features.
+make: 'exe-ICC' is up to date.
+slurmstepd: error: *** JOB 3079210 ON f0323 CANCELLED AT 2025-11-18T01:51:28 DUE TO TIME LIMIT ***
+=== JOB_STATISTICS ===
+=== current date     : Tue Nov 18 01:51:31 CET 2025
+= Job-ID             : 3079210 on fritz
+= Job-Name           : bench_internode
+= Job-Command        : /home/hpc/pavl/pavl166v/pampi_exe/assignment_4/skeleton/sor_job_a.sh
+= Initial workdir    : /home/hpc/pavl/pavl166v/pampi_exe/assignment_4/skeleton
+= Queue/Partition    : singlenode
+= Slurm account      : pavl with QOS=normal
+= Requested resources:  for 01:30:00
+= Elapsed runtime    : 01:30:29
+= Total RAM usage    : 8.3 GiB 
+= Node list          : f0323
+= Subm/Elig/Start/End: 2025-11-18T00:20:56 / 2025-11-18T00:20:56 / 2025-11-18T00:20:59 / 2025-11-18T01:51:28
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             0.0K  1000.0G  1500.0G        N/A       1    5,000K   7,500K        N/A    
+    /home/hpc            1863.6M   104.9G   209.7G        N/A   8,267      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================

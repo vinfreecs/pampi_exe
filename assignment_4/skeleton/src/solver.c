@@ -18,7 +18,7 @@
 #define RHS(i, j) rhs[(j) * (imax + 2) + (i)]
 
 //change this to 1 for RED black sor solver or set in compilation step
-#define RED_BLACK_SOLVER 0
+#define RED_BLACK_SOLVER 1
 
 static int sizeOfRank(int rank, int size, int N)
 {
@@ -92,7 +92,7 @@ void getResult(Solver* solver)
             p[(solver->jmax + 1) * (solver->imax + 2) + i] = p[(solver->jmax) * (solver->imax + 2) + i];
         }
         for (int j = 0; j < solver->jmax + 2; ++j) {
-            /* left/right halos (col 0 and col imax+1) mirror neighbors */
+            // left/right halos (col 0 and col imax+1) mirror neighbors 
             p[j * (solver->imax + 2) + 0]        = p[j * (solver->imax + 2) + 1];
             p[j * (solver->imax + 2) + (solver->imax + 1)] = p[j * (solver->imax + 2) + solver->imax];
         }
@@ -132,7 +132,7 @@ void initSolver(Solver* solver, Parameter* params, int problem)
     // size_t bytesize = (imax + 2) * (jmax + 2) * sizeof(double);
     size_t bytesize = (imax+2) * (jmaxLocal+2) * sizeof(double);
     solver->p       = allocate(64, bytesize);
-    solver->rhs     = allocate(64, bytesize);
+    solver->rhs     = allocate(64,(imax + 2) * (jmax + 2) * sizeof(double));
 
     double dx   = solver->dx;
     double dy   = solver->dy;
@@ -146,18 +146,18 @@ void initSolver(Solver* solver, Parameter* params, int problem)
     for (int j = 0; j < jmaxLocal + 2; j++) {
         double y = solver->ys + j * dy;
         for (int i = 0; i < imax + 2; i++) {
-            P(i, j) = sin(2.0 * PI * i * dx * 2.0) + sin(2.0 * PI * j * y * 2.0);
+            P(i, j) = sin(2.0 * PI * i * dx * 2.0) + sin(2.0 * PI * y * 2.0);
         }
     }
 
     if (problem == 2) {
-        for (int j = 0; j < jmaxLocal + 2; j++) {
+        for (int j = 0; j < jmax + 2; j++) {
             for (int i = 0; i < imax + 2; i++) {
                 RHS(i, j) = sin(2.0 * PI * i * dx);
             }
         }
     } else {
-        for (int j = 0; j < jmaxLocal + 2; j++) {
+        for (int j = 0; j < jmax + 2; j++) {
             for (int i = 0; i < imax + 2; i++) {
                 RHS(i, j) = 0.0;
             }
@@ -187,6 +187,19 @@ void solve(Solver* solver)
 
     while ((res >= epssq) && (it < itermax)) {
         res = 0.0;
+
+
+        //this is redblack without the if condition
+        // for (int j = 1; j < jmaxLocal + 1; j++) {
+        //     for (int i = 1+(j%2); i < imax + 1; i+2) {
+        //         double r = RHS(i, j) -
+        //                     ((P(i - 1, j) - 2.0 * P(i, j) + P(i + 1, j)) * idx2 +
+        //                         (P(i, j - 1) - 2.0 * P(i, j) + P(i, j + 1)) * idy2);
+
+        //         P(i, j) -= (factor * r);
+        //         res += (r * r);
+        //     }
+        // }
         exchange(solver);
 
         // adapt for mpi

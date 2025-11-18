@@ -1,0 +1,19 @@
+ mpirun -n 1 ./exe-ICC poisson.par | tail -2
+Solver took 4382 iterations to reach 0.000001 using omega=1.800000
+Walltime 0.47s
+ mpirun -n 18 ./exe-ICC poisson.par | tail -2
+Solver took 7725 iterations to reach -nan using omega=1.800000
+Walltime 0.10s
+ mpirun -n 72 ./exe-ICC poisson.par | tail -2
+Solver took 1297 iterations to reach -nan using omega=1.800000
+Walltime 0.20s
+
+ mpirun -n 18 ./exe-ICC poisson.par | tail -2
+Solver took 14095 iterations to reach 0.000001 using omega=1.500000
+Walltime 0.16s
+ mpirun -n 72 ./exe-ICC poisson.par | tail -2
+Solver took 3164 iterations to reach -nan using omega=1.500000
+Walltime 0.22s
+ mpirun -n 1 ./exe-ICC poisson.par | tail -2
+Solver took 11608 iterations to reach 0.000001 using omega=1.500000
+Walltime 1.23s
