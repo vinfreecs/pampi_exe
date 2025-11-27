@@ -164,7 +164,8 @@ void exchange(Solver *solver, double *grid)
     /* initSolver() call and you can use them directly here.*/
     /* Refer to lecture slides for more information.        */
     int counts[NDIRS] = {1, 1, 1, 1};
-    MPI_Neighbor_alltoallw(...);
+    MPI_Neighbor_alltoallw(grid, counts, solver->sdispls, solver->bufferTypes,
+                           grid, counts, solver->rdispls, solver->bufferTypes, solver->comm);
 }
 
 void shift(Solver *solver)
@@ -184,26 +185,26 @@ void shift(Solver *solver)
     /* use solver->bufferTypes and solver->neighbours array */
     /* to receive from BOTTOM rank                          */
     double *buf = g + 1;
-    MPI_Irecv(...);
+    MPI_Irecv(buf, 1, solver->bufferTypes[BOTTOM], solver->neighbours[BOTTOM], 1, solver->comm, &requests[0]);
 
     /* send ghost cells to top neighbor                     */
     /* use solver->bufferTypes and solver->neighbours array */
     /* to send to TOP rank                                  */
     buf = g + (solver->jmaxLocal) * (solver->imaxLocal + 2) + 1;
-    MPI_Isend(...);
+    MPI_Isend(buf, 1, solver->bufferTypes[TOP], solver->neighbours[TOP], 1, solver->comm, &requests[1]);
 
     /* shift F                                              */
     /* receive ghost cells from left neighbor               */
     /* use solver->bufferTypes and solver->neighbours array */
     /* to receive from LEFT rank                            */
     buf = f + (solver->imaxLocal + 2);
-    MPI_Irecv(...);
+    MPI_Irecv(buf, 1, solver->bufferTypes[LEFT], solver->neighbours[LEFT], 1, solver->comm, &requests[2]);
 
     /* send ghost cells to right neighbor                   */
     /* use solver->bufferTypes and solver->neighbours array */
     /* to send to RIGHT rank                                */
     buf = f + (solver->imaxLocal + 2) + (solver->imaxLocal);
-    MPI_Isend(...);
+    MPI_Isend(buf, 1, solver->bufferTypes[RIGHT], solver->neighbours[RIGHT], 1, solver->comm, &requests[3]);
 
     MPI_Waitall(4, requests, MPI_STATUSES_IGNORE);
 }
@@ -279,11 +280,11 @@ static void assembleResult(Solver *solver, double *src, double *dst)
     /* https://rookiehpc.org/mpi/docs/mpi_type_create_subarray/index.html */
     /* Create a subarray in bulkType object declared above                */
     /* Use oldSizes, newSizes and starts defined above                    */
-    MPI_Type_create_subarray(...);
+    MPI_Type_create_subarray(NDIMS, oldSizes, newSizes, starts, MPI_ORDER_C, MPI_DOUBLE, &bulkType);
     MPI_Type_commit(&bulkType);
 
     /* Send the data using bulkType subarray to rank 0    */
-    MPI_Isend(...);
+    MPI_Isend(src, 1, bulkType, 0, 1, MPI_COMM_WORLD, requests);
 
     int newSizesI[solver->size];
     int newSizesJ[solver->size];
@@ -318,12 +319,12 @@ static void assembleResult(Solver *solver, double *src, double *dst)
             /* Refer to lecture slides for more information                       */
             /* Create a subarray in domainType object declared above              */
             /* Use oldSizes, newSizes and starts defined above                    */
-            MPI_Type_create_subarray(...);
+            MPI_Type_create_subarray(NDIMS, oldSizes, newSizes, starts, MPI_ORDER_C, MPI_DOUBLE, &domainType);
 
             MPI_Type_commit(&domainType);
 
             /* Recv the data using domainType subarray from rest of the ranks */
-            MPI_Irecv(...);
+            MPI_Irecv(dst, 1, domainType, MPI_ANY_SOURCE, 1, MPI_COMM_WORLD, requests);
             MPI_Type_free(&domainType);
         }
     }
@@ -456,18 +457,18 @@ void initSolver(Solver *solver, Parameter *params)
     /* Use NDIMS to specify dimension size                           */
     /* https://rookiehpc.org/mpi/docs/mpi_cart_create/index.html     */
     MPI_Comm new_comm;
-    MPI_Cart_create(MPI_Comm old_comm, NDIMS, dims, periods, 0, &new_comm);
+    MPI_Cart_create(MPI_COMM_WORLD, NDIMS, dims, periods, 0, &new_comm);
     solver->comm = new_comm;
     /* Use newly created communicator solver->comm                   */
     /* For left and right neighbors                                  */
     /* Store in solver->neighbors[LEFT] and solver->neighbors[RIGHT] */
     /* https://rookiehpc.org/mpi/docs/mpi_cart_shift/index.html      */
-    MPI_Cart_shift(solver->comm, 0, 1, solver->neighbors[LEFT], solver->neighbors[RIGHT]);
+    MPI_Cart_shift(solver->comm, 0, 1, &solver->neighbours[LEFT], &solver->neighbours[RIGHT]);
 
     /* Use newly created communicator solver->comm                   */
     /* For bottom and top neighbors                                  */
     /* Store in solver->neighbors[BOTTOM] and solver->neighbors[TOP] */
-    MPI_Cart_shift(solver->comm, 1, 1 solver->neighbors[BOTTOM], solver->neighbors[TOP]);
+    MPI_Cart_shift(solver->comm, 1, 1, &solver->neighbours[BOTTOM], &solver->neighbours[TOP]);
 
     /* Retrieve the cartesion topology of the rank in solver->coords */
     /* https://rookiehpc.org/mpi/docs/mpi_cart_get/index.html        */
@@ -504,7 +505,7 @@ void initSolver(Solver *solver, Parameter *params)
     size_t dblsize = sizeof(double);
     solver->sdispls[LEFT] = ((imaxLocal + 2) + 1) * dblsize;
     solver->sdispls[RIGHT] = ((imaxLocal + 2) + imaxLocal) * dblsize;
-    solver->sdispls[BOTTOM] = ((imaxLocal + 2) +) * dblsize;
+    solver->sdispls[BOTTOM] = ((imaxLocal + 2) + 1) * dblsize;
     solver->sdispls[TOP] = ((jmaxLocal) * (imaxLocal + 2) + 1) * dblsize;
 
     solver->rdispls[LEFT] = (imaxLocal + 2) * dblsize;
@@ -561,9 +562,9 @@ void computeRHS(Solver *solver)
     shift(solver);
 
     /* TODO adapt to local size imaxLocal & jmaxLocal */
-    for (int j = 1; j < jmax + 1; j++)
+    for (int j = 1; j < jmaxLocal + 1; j++)
     {
-        for (int i = 1; i < imax + 1; i++)
+        for (int i = 1; i < imaxLocal + 1; i++)
         {
             RHS(i, j) = ((F(i, j) - F(i - 1, j)) * idx + (G(i, j) - G(i, j - 1)) * idy) *
                         idt;
@@ -589,6 +590,7 @@ void solve(Solver *solver)
     double epssq = eps * eps;
     int it = 0;
     double res = 1.0;
+    double global_res = 0.0;
 
     while ((res >= epssq) && (it < itermax))
     {
@@ -599,9 +601,9 @@ void solve(Solver *solver)
         exchange(solver, p);
 
         /* TODO adapt to local size imaxLocal & jmaxLocal     */
-        for (int j = 1; j < jmax + 1; j++)
+        for (int j = 1; j < jmaxLocal + 1; j++)
         {
-            for (int i = 1; i < imax + 1; i++)
+            for (int i = 1; i < imaxLocal + 1; i++)
             {
 
                 double r = RHS(i, j) -
@@ -617,21 +619,26 @@ void solve(Solver *solver)
         /* use isBoundary(solver, LEFT/RIGHT/TOP/BOTTOM) to check       */
         /* whether a rank has boundary and apply BC only for those rank */
         /* Use indices for more intuition.                              */
-        for (int i = 1; i < imax + 1; i++)
+        if (isBoundary(solver, TOP) || isBoundary(solver, BOTTOM))
         {
-            P(i, 0) = P(i, 1);
-            P(i, jmax + 1) = P(i, jmax);
+            for (int i = 1; i < imax + 1; i++)
+            {
+                P(i, 0) = P(i, 1);
+                P(i, jmax + 1) = P(i, jmax);
+            }
         }
-
-        for (int j = 1; j < jmax + 1; j++)
+        if (isBoundary(solver, LEFT) || isBoundary(solver, RIGHT))
         {
-            P(0, j) = P(1, j);
-            P(imax + 1, j) = P(imax, j);
+            for (int j = 1; j < jmax + 1; j++)
+            {
+                P(0, j) = P(1, j);
+                P(imax + 1, j) = P(imax, j);
+            }
         }
 
         /* TODO add global MPI_SUM reduction for res */
-        MPI_Allreduce(...);
-
+        MPI_Allreduce(&res, &global_res, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+        res = global_res;
         res = res / (double)(imax * jmax);
 #ifdef DEBUG
         printf("%d Residuum: %e\n", it, res);
@@ -648,7 +655,7 @@ void solve(Solver *solver)
 static double maxElement(Solver *solver, double *m)
 {
     /* TODO adapt to local size imaxLocal & jmaxLocal */
-    int size = (solver->imax + 2) * (solver->jmax + 2);
+    int size = (solver->imaxLocal + 2) * (solver->jmaxLocal + 2);
     double maxval = DBL_MIN;
 
     for (int i = 0; i < size; i++)
@@ -657,8 +664,9 @@ static double maxElement(Solver *solver, double *m)
     }
 
     /* TODO add global MPI_MAX reduction for maxval */
-    MPI_Allreduce(...);
-
+    double global_max = 0.0;
+    MPI_Allreduce(&maxval, &global_max, 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD);
+    maxval = global_max;
     return maxval;
 }
 
@@ -676,8 +684,9 @@ void normalizePressure(Solver *solver)
     avgP /= size;
 
     /* TODO add global MPI_SUM reduction for avgP */
-    MPI_Allreduce(...);
-
+    double global_avg = 0.0;
+    MPI_Allreduce(&avgP, &global_avg, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+    avgP = global_avg;
     /* do not adapt to local size imaxLocal & jmaxLocal */
     avgP /= (solver->imax + 2) * (solver->jmax + 2);
 
@@ -754,7 +763,7 @@ void setBoundaryConditions(Solver *solver)
         for (int j = 1; j < jmaxLocal + 1; j++)
         {
             U(imaxLocal, j) = 0.0;
-            V(imaxLocal + 1, j) = -V(imaxLocal j);
+            V(imaxLocal + 1, j) = -V(imaxLocal, j);
         }
         break;
     case SLIP:
