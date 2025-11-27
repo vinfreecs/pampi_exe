@@ -1,0 +1,39 @@
+ ./exe-ICC canal.par 
+Parameters for canal
+Boundary conditions Left:3 Right:3 Bottom:1 Top:1
+        Reynolds number: 100.00
+        Init arrays: U:1.00 V:0.00 P:0.00
+Geometry data:
+        Domain box size (x, y): 30.00, 4.00
+        Cells (x, y): 200, 50
+Timestep parameters:
+        Default stepsize: 0.02, Final time 100.00
+        Tau factor: 0.50
+Iterative solver parameters:
+        Max iterations: 500
+        epsilon (stopping tolerance) : 0.000010
+        gamma (stopping tolerance) : 0.900000
+        omega (SOR relaxation): 1.800000
+[##########]
+Solution took 53.21s
+
+---------------------------------
+
+ ./exe-ICC dcavity.par
+Parameters for dcavity
+Boundary conditions Left:1 Right:1 Bottom:1 Top:1
+        Reynolds number: 10.00
+        Init arrays: U:0.00 V:0.00 P:0.00
+Geometry data:
+        Domain box size (x, y): 1.00, 1.00
+        Cells (x, y): 100, 100
+Timestep parameters:
+        Default stepsize: 0.02, Final time 10.00
+        Tau factor: 0.50
+Iterative solver parameters:
+        Max iterations: 1000
+        epsilon (stopping tolerance) : 0.001000
+        gamma (stopping tolerance) : 0.900000
+        omega (SOR relaxation): 1.800000
+[##########]
+Solution took 117.42s
