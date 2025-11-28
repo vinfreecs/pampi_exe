@@ -219,13 +219,13 @@ static int isBoundary(Solver *solver, int direction)
         return solver->coords[IDIM] == 0;
         break;
     case RIGHT:
-        return solver->coords[IDIM] == solver->size - 1;
+        return solver->coords[IDIM] == solver->dims[IDIM] - 1;
         break;
     case BOTTOM:
         return solver->coords[JDIM] == 0;
         break;
     case TOP:
-        return solver->coords[JDIM] == solver->size - 1;
+        return solver->coords[JDIM] == solver->dims[JDIM] - 1;
         break;
     }
     return 1;
@@ -284,19 +284,20 @@ static void assembleResult(Solver *solver, double *src, double *dst)
     MPI_Type_commit(&bulkType);
 
     /* Send the data using bulkType subarray to rank 0    */
-    MPI_Isend(src, 1, bulkType, 0, 1, MPI_COMM_WORLD, requests);
+    MPI_Isend(src, 1, bulkType, 0, 1, MPI_COMM_WORLD, &requests[0]);
 
     int newSizesI[solver->size];
     int newSizesJ[solver->size];
     MPI_Gather(&newSizes[CIDIM], 1, MPI_INT, newSizesI, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Gather(&newSizes[CJDIM], 1, MPI_INT, newSizesJ, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
+    MPI_Datatype *domainTypes = NULL;
     /* rank 0 assembles the subdomains */
     if (solver->rank == 0)
     {
+        domainTypes = malloc(solver->size * sizeof(MPI_Datatype));
         for (int i = 0; i < solver->size; i++)
         {
-            MPI_Datatype domainType;
             int oldSizes[NDIMS] = {jmax + 2, imax + 2};
             int newSizes[NDIMS] = {newSizesJ[i], newSizesI[i]};
             int coords[NDIMS];
@@ -319,17 +320,24 @@ static void assembleResult(Solver *solver, double *src, double *dst)
             /* Refer to lecture slides for more information                       */
             /* Create a subarray in domainType object declared above              */
             /* Use oldSizes, newSizes and starts defined above                    */
-            MPI_Type_create_subarray(NDIMS, oldSizes, newSizes, starts, MPI_ORDER_C, MPI_DOUBLE, &domainType);
+            MPI_Type_create_subarray(NDIMS, oldSizes, newSizes, starts, MPI_ORDER_C, MPI_DOUBLE, &domainTypes[i]);
 
-            MPI_Type_commit(&domainType);
+            MPI_Type_commit(&domainTypes[i]);
 
             /* Recv the data using domainType subarray from rest of the ranks */
-            MPI_Irecv(dst, 1, domainType, MPI_ANY_SOURCE, 1, MPI_COMM_WORLD, requests);
-            MPI_Type_free(&domainType);
+            MPI_Irecv(dst, 1, domainTypes[i], i, 1, MPI_COMM_WORLD, &requests[i + 1]);
         }
     }
 
     MPI_Waitall(numRequests, requests, MPI_STATUSES_IGNORE);
+    MPI_Type_free(&bulkType);
+    if (solver->rank == 0)
+    {
+        for (int i = 0; i < solver->size; i++)
+            MPI_Type_free(&domainTypes[i]);
+        free(domainTypes);
+    }
+    free(requests);
 }
 
 void collectResult(Solver *solver)
@@ -619,20 +627,32 @@ void solve(Solver *solver)
         /* use isBoundary(solver, LEFT/RIGHT/TOP/BOTTOM) to check       */
         /* whether a rank has boundary and apply BC only for those rank */
         /* Use indices for more intuition.                              */
-        if (isBoundary(solver, TOP) || isBoundary(solver, BOTTOM))
+        if (isBoundary(solver, TOP))
         {
-            for (int i = 1; i < imax + 1; i++)
+            for (int i = 1; i < imaxLocal + 1; i++)
             {
-                P(i, 0) = P(i, 1);
-                P(i, jmax + 1) = P(i, jmax);
+                P(i, jmaxLocal + 1) = P(i, jmaxLocal);
             }
         }
-        if (isBoundary(solver, LEFT) || isBoundary(solver, RIGHT))
+        if (isBoundary(solver, BOTTOM))
         {
-            for (int j = 1; j < jmax + 1; j++)
+            for (int i = 1; i < imaxLocal + 1; i++)
+            {
+                P(i, 0) = P(i, 1);
+            }
+        }
+        if (isBoundary(solver, LEFT))
+        {
+            for (int j = 1; j < jmaxLocal + 1; j++)
             {
                 P(0, j) = P(1, j);
-                P(imax + 1, j) = P(imax, j);
+            }
+        }
+        if (isBoundary(solver, RIGHT))
+        {
+            for (int j = 1; j < jmaxLocal + 1; j++)
+            {
+                P(imaxLocal + 1, j) = P(imaxLocal, j);
             }
         }
 
@@ -673,7 +693,7 @@ static double maxElement(Solver *solver, double *m)
 void normalizePressure(Solver *solver)
 {
     /* TODO adapt to local size imaxLocal & jmaxLocal */
-    int size = (solver->imax + 2) * (solver->jmax + 2);
+    int size = (solver->imaxLocal + 2) * (solver->jmaxLocal + 2);
     double *p = solver->p;
     double avgP = 0.0;
 
@@ -874,13 +894,10 @@ void setSpecialBoundaryCondition(Solver *solver)
     {
         // TODO
         double ylength = solver->ylength;
-        ylength = ylength / solver->dims[1];
-        mDy = ylength / jmaxLocal;
-        double y;
-
         for (int j = 1; j < jmaxLocal + 1; j++)
         {
-            y = mDy * (j - 0.5);
+            int globalJ = (solver->coords[JDIM] * solver->jmaxLocal) + j;
+            double y = solver->dy * (globalJ - 0.5);
             U(0, j) = y * (ylength - y) * 4.0 / (ylength * ylength);
         }
     }
@@ -958,11 +975,17 @@ void computeFG(Solver *solver)
     /* Check the indices for more intuition. Use isBoundary(solver, LEFT/RIGHT)   */
     /* to check if a rank has LEFT or RIGHT boundary.                             */
     /* ----------------------------- boundary of F --------------------------- */
-    if (isBoundary(solver, LEFT) || isBoundary(solver, RIGHT))
+    if (isBoundary(solver, LEFT))
     {
         for (int j = 1; j < jmaxLocal + 1; j++)
         {
             F(0, j) = U(0, j);
+        }
+    }
+    if (isBoundary(solver, RIGHT))
+    {
+        for (int j = 1; j < jmaxLocal + 1; j++)
+        {
             F(imaxLocal, j) = U(imaxLocal, j);
         }
     }
@@ -971,12 +994,20 @@ void computeFG(Solver *solver)
     /* Check the indices for more intuition. Use isBoundary(solver, TOP/BOTTOM)   */
     /* to check if a rank has TOP or BOTTOM boundary.                             */
     /* ----------------------------- boundary of G --------------------------- */
-    if (isBoundary(solver, BOTTOM) || isBoundary(solver, TOP))
+    if (isBoundary(solver, BOTTOM))
+    {
         for (int i = 1; i < imaxLocal + 1; i++)
         {
             G(i, 0) = V(i, 0);
+        }
+    }
+    if (isBoundary(solver, TOP))
+    {
+        for (int i = 1; i < imaxLocal + 1; i++)
+        {
             G(i, jmaxLocal) = V(i, jmaxLocal);
         }
+    }
 }
 
 /* TODO adapt to local size imaxLocal & jmaxLocal */
