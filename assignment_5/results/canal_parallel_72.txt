@@ -1,0 +1,327 @@
+===>  CLEAN
+===>  COMPILE  build/ICX/timing.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/timing.c -o build/ICX/timing.o
+===>  COMPILE  build/ICX/progress.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/progress.c -o build/ICX/progress.o
+===>  COMPILE  build/ICX/main.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/main.c -o build/ICX/main.o
+===>  COMPILE  build/ICX/solver.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/solver.c -o build/ICX/solver.o
+===>  COMPILE  build/ICX/affinity.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/affinity.c -o build/ICX/affinity.o
+===>  COMPILE  build/ICX/allocate.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/allocate.c -o build/ICX/allocate.o
+===>  COMPILE  build/ICX/parameter.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/parameter.c -o build/ICX/parameter.o
+===>  COMPILE  build/ICX/new.o
+mpiicx -c  -D_GNU_SOURCE  -DARRAY_ALIGNMENT=64  -I./src -I./build/ICX -O3 -xHost -qopt-zmm-usage=high -std=c99  -Wno-unused-command-line-argument ./src/new.c -o build/ICX/new.o
+===>  LINKING  exe-ICX
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+[0] MPI startup(): Intel(R) MPI Library, Version 2021.10  Build 20230619 (id: c2e19c2f3e)
+[0] MPI startup(): Copyright (C) 2003-2023 Intel Corporation.  All rights reserved.
+[0] MPI startup(): library kind: release
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+[0] MPI startup(): libfabric version: 1.18.0-impi
+[0] MPI startup(): libfabric provider: mlx
+Parameters for canal
+Boundary conditions Left:3 Right:3 Bottom:1 Top:1
+	Reynolds number: 100.00
+	Init arrays: U:1.00 V:0.00 P:1.00
+Geometry data:
+	Domain box size (x, y): 30.00, 4.00
+	Cells (x, y): 200, 50
+Timestep parameters:
+	Default stepsize: 0.02, Final time 100.00
+	Tau factor: 0.50
+Iterative solver parameters:
+	Max iterations: 500
+	epsilon (stopping tolerance) : 0.000010
+	gamma (stopping tolerance) : 0.900000
+	omega (SOR relaxation): 1.500000
+Solution took 4.88s
+Rank: 0, Coords(i,j): 0 0, Size(i,j): 202 52, Target Size(i,j): 24 8 Starts(i,j): 0 0
+Rank: 1, Coords(i,j): 0 1, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 8
+Rank: 2, Coords(i,j): 0 2, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 15
+Rank: 3, Coords(i,j): 0 3, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 21
+Rank: 4, Coords(i,j): 0 4, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 27
+Rank: 5, Coords(i,j): 0 5, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 33
+Rank: 6, Coords(i,j): 0 6, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 39
+Rank: 7, Coords(i,j): 0 7, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 45
+Rank: 8, Coords(i,j): 1 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 24 0
+Rank: 9, Coords(i,j): 1 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 8
+Rank: 10, Coords(i,j): 1 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 15
+Rank: 11, Coords(i,j): 1 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 21
+Rank: 12, Coords(i,j): 1 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 27
+Rank: 13, Coords(i,j): 1 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 33
+Rank: 14, Coords(i,j): 1 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 39
+Rank: 15, Coords(i,j): 1 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 45
+Rank: 16, Coords(i,j): 2 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 47 0
+Rank: 17, Coords(i,j): 2 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 8
+Rank: 18, Coords(i,j): 2 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 15
+Rank: 19, Coords(i,j): 2 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 21
+Rank: 20, Coords(i,j): 2 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 27
+Rank: 21, Coords(i,j): 2 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 33
+Rank: 22, Coords(i,j): 2 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 39
+Rank: 23, Coords(i,j): 2 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 45
+Rank: 24, Coords(i,j): 3 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 69 0
+Rank: 25, Coords(i,j): 3 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 8
+Rank: 26, Coords(i,j): 3 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 15
+Rank: 27, Coords(i,j): 3 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 21
+Rank: 28, Coords(i,j): 3 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 27
+Rank: 29, Coords(i,j): 3 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 33
+Rank: 30, Coords(i,j): 3 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 39
+Rank: 31, Coords(i,j): 3 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 45
+Rank: 32, Coords(i,j): 4 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 91 0
+Rank: 33, Coords(i,j): 4 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 8
+Rank: 34, Coords(i,j): 4 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 15
+Rank: 35, Coords(i,j): 4 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 21
+Rank: 36, Coords(i,j): 4 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 27
+Rank: 37, Coords(i,j): 4 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 33
+Rank: 38, Coords(i,j): 4 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 39
+Rank: 39, Coords(i,j): 4 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 45
+Rank: 40, Coords(i,j): 5 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 113 0
+Rank: 41, Coords(i,j): 5 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 8
+Rank: 42, Coords(i,j): 5 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 15
+Rank: 43, Coords(i,j): 5 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 21
+Rank: 44, Coords(i,j): 5 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 27
+Rank: 45, Coords(i,j): 5 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 33
+Rank: 46, Coords(i,j): 5 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 39
+Rank: 47, Coords(i,j): 5 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 45
+Rank: 48, Coords(i,j): 6 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 135 0
+Rank: 49, Coords(i,j): 6 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 8
+Rank: 50, Coords(i,j): 6 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 15
+Rank: 51, Coords(i,j): 6 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 21
+Rank: 52, Coords(i,j): 6 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 27
+Rank: 53, Coords(i,j): 6 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 33
+Rank: 54, Coords(i,j): 6 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 39
+Rank: 55, Coords(i,j): 6 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 45
+Rank: 56, Coords(i,j): 7 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 157 0
+Rank: 57, Coords(i,j): 7 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 8
+Rank: 58, Coords(i,j): 7 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 15
+Rank: 59, Coords(i,j): 7 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 21
+Rank: 60, Coords(i,j): 7 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 27
+Rank: 61, Coords(i,j): 7 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 33
+Rank: 62, Coords(i,j): 7 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 39
+Rank: 63, Coords(i,j): 7 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 45
+Rank: 64, Coords(i,j): 8 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 179 0
+Rank: 65, Coords(i,j): 8 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 8
+Rank: 66, Coords(i,j): 8 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 15
+Rank: 67, Coords(i,j): 8 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 21
+Rank: 68, Coords(i,j): 8 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 27
+Rank: 69, Coords(i,j): 8 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 33
+Rank: 70, Coords(i,j): 8 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 39
+Rank: 71, Coords(i,j): 8 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 45
+Rank: 0, Coords(i,j): 0 0, Size(i,j): 202 52, Target Size(i,j): 24 8 Starts(i,j): 0 0
+Rank: 1, Coords(i,j): 0 1, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 8
+Rank: 2, Coords(i,j): 0 2, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 15
+Rank: 3, Coords(i,j): 0 3, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 21
+Rank: 4, Coords(i,j): 0 4, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 27
+Rank: 5, Coords(i,j): 0 5, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 33
+Rank: 6, Coords(i,j): 0 6, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 39
+Rank: 7, Coords(i,j): 0 7, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 45
+Rank: 8, Coords(i,j): 1 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 24 0
+Rank: 9, Coords(i,j): 1 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 8
+Rank: 10, Coords(i,j): 1 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 15
+Rank: 11, Coords(i,j): 1 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 21
+Rank: 12, Coords(i,j): 1 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 27
+Rank: 13, Coords(i,j): 1 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 33
+Rank: 14, Coords(i,j): 1 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 39
+Rank: 15, Coords(i,j): 1 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 45
+Rank: 16, Coords(i,j): 2 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 47 0
+Rank: 17, Coords(i,j): 2 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 8
+Rank: 18, Coords(i,j): 2 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 15
+Rank: 19, Coords(i,j): 2 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 21
+Rank: 20, Coords(i,j): 2 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 27
+Rank: 21, Coords(i,j): 2 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 33
+Rank: 22, Coords(i,j): 2 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 39
+Rank: 23, Coords(i,j): 2 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 45
+Rank: 24, Coords(i,j): 3 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 69 0
+Rank: 25, Coords(i,j): 3 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 8
+Rank: 26, Coords(i,j): 3 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 15
+Rank: 27, Coords(i,j): 3 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 21
+Rank: 28, Coords(i,j): 3 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 27
+Rank: 29, Coords(i,j): 3 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 33
+Rank: 30, Coords(i,j): 3 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 39
+Rank: 31, Coords(i,j): 3 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 45
+Rank: 32, Coords(i,j): 4 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 91 0
+Rank: 33, Coords(i,j): 4 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 8
+Rank: 34, Coords(i,j): 4 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 15
+Rank: 35, Coords(i,j): 4 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 21
+Rank: 36, Coords(i,j): 4 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 27
+Rank: 37, Coords(i,j): 4 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 33
+Rank: 38, Coords(i,j): 4 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 39
+Rank: 39, Coords(i,j): 4 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 45
+Rank: 40, Coords(i,j): 5 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 113 0
+Rank: 41, Coords(i,j): 5 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 8
+Rank: 42, Coords(i,j): 5 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 15
+Rank: 43, Coords(i,j): 5 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 21
+Rank: 44, Coords(i,j): 5 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 27
+Rank: 45, Coords(i,j): 5 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 33
+Rank: 46, Coords(i,j): 5 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 39
+Rank: 47, Coords(i,j): 5 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 45
+Rank: 48, Coords(i,j): 6 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 135 0
+Rank: 49, Coords(i,j): 6 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 8
+Rank: 50, Coords(i,j): 6 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 15
+Rank: 51, Coords(i,j): 6 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 21
+Rank: 52, Coords(i,j): 6 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 27
+Rank: 53, Coords(i,j): 6 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 33
+Rank: 54, Coords(i,j): 6 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 39
+Rank: 55, Coords(i,j): 6 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 45
+Rank: 56, Coords(i,j): 7 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 157 0
+Rank: 57, Coords(i,j): 7 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 8
+Rank: 58, Coords(i,j): 7 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 15
+Rank: 59, Coords(i,j): 7 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 21
+Rank: 60, Coords(i,j): 7 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 27
+Rank: 61, Coords(i,j): 7 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 33
+Rank: 62, Coords(i,j): 7 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 39
+Rank: 63, Coords(i,j): 7 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 45
+Rank: 64, Coords(i,j): 8 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 179 0
+Rank: 65, Coords(i,j): 8 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 8
+Rank: 66, Coords(i,j): 8 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 15
+Rank: 67, Coords(i,j): 8 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 21
+Rank: 68, Coords(i,j): 8 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 27
+Rank: 69, Coords(i,j): 8 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 33
+Rank: 70, Coords(i,j): 8 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 39
+Rank: 71, Coords(i,j): 8 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 45
+Rank: 0, Coords(i,j): 0 0, Size(i,j): 202 52, Target Size(i,j): 24 8 Starts(i,j): 0 0
+Rank: 1, Coords(i,j): 0 1, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 8
+Rank: 2, Coords(i,j): 0 2, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 15
+Rank: 3, Coords(i,j): 0 3, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 21
+Rank: 4, Coords(i,j): 0 4, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 27
+Rank: 5, Coords(i,j): 0 5, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 33
+Rank: 6, Coords(i,j): 0 6, Size(i,j): 202 52, Target Size(i,j): 24 6 Starts(i,j): 0 39
+Rank: 7, Coords(i,j): 0 7, Size(i,j): 202 52, Target Size(i,j): 24 7 Starts(i,j): 0 45
+Rank: 8, Coords(i,j): 1 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 24 0
+Rank: 9, Coords(i,j): 1 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 8
+Rank: 10, Coords(i,j): 1 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 15
+Rank: 11, Coords(i,j): 1 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 21
+Rank: 12, Coords(i,j): 1 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 27
+Rank: 13, Coords(i,j): 1 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 33
+Rank: 14, Coords(i,j): 1 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 24 39
+Rank: 15, Coords(i,j): 1 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 24 45
+Rank: 16, Coords(i,j): 2 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 47 0
+Rank: 17, Coords(i,j): 2 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 8
+Rank: 18, Coords(i,j): 2 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 15
+Rank: 19, Coords(i,j): 2 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 21
+Rank: 20, Coords(i,j): 2 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 27
+Rank: 21, Coords(i,j): 2 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 33
+Rank: 22, Coords(i,j): 2 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 47 39
+Rank: 23, Coords(i,j): 2 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 47 45
+Rank: 24, Coords(i,j): 3 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 69 0
+Rank: 25, Coords(i,j): 3 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 8
+Rank: 26, Coords(i,j): 3 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 15
+Rank: 27, Coords(i,j): 3 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 21
+Rank: 28, Coords(i,j): 3 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 27
+Rank: 29, Coords(i,j): 3 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 33
+Rank: 30, Coords(i,j): 3 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 69 39
+Rank: 31, Coords(i,j): 3 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 69 45
+Rank: 32, Coords(i,j): 4 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 91 0
+Rank: 33, Coords(i,j): 4 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 8
+Rank: 34, Coords(i,j): 4 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 15
+Rank: 35, Coords(i,j): 4 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 21
+Rank: 36, Coords(i,j): 4 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 27
+Rank: 37, Coords(i,j): 4 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 33
+Rank: 38, Coords(i,j): 4 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 91 39
+Rank: 39, Coords(i,j): 4 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 91 45
+Rank: 40, Coords(i,j): 5 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 113 0
+Rank: 41, Coords(i,j): 5 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 8
+Rank: 42, Coords(i,j): 5 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 15
+Rank: 43, Coords(i,j): 5 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 21
+Rank: 44, Coords(i,j): 5 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 27
+Rank: 45, Coords(i,j): 5 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 33
+Rank: 46, Coords(i,j): 5 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 113 39
+Rank: 47, Coords(i,j): 5 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 113 45
+Rank: 48, Coords(i,j): 6 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 135 0
+Rank: 49, Coords(i,j): 6 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 8
+Rank: 50, Coords(i,j): 6 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 15
+Rank: 51, Coords(i,j): 6 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 21
+Rank: 52, Coords(i,j): 6 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 27
+Rank: 53, Coords(i,j): 6 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 33
+Rank: 54, Coords(i,j): 6 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 135 39
+Rank: 55, Coords(i,j): 6 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 135 45
+Rank: 56, Coords(i,j): 7 0, Size(i,j): 202 52, Target Size(i,j): 22 8 Starts(i,j): 157 0
+Rank: 57, Coords(i,j): 7 1, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 8
+Rank: 58, Coords(i,j): 7 2, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 15
+Rank: 59, Coords(i,j): 7 3, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 21
+Rank: 60, Coords(i,j): 7 4, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 27
+Rank: 61, Coords(i,j): 7 5, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 33
+Rank: 62, Coords(i,j): 7 6, Size(i,j): 202 52, Target Size(i,j): 22 6 Starts(i,j): 157 39
+Rank: 63, Coords(i,j): 7 7, Size(i,j): 202 52, Target Size(i,j): 22 7 Starts(i,j): 157 45
+Rank: 64, Coords(i,j): 8 0, Size(i,j): 202 52, Target Size(i,j): 23 8 Starts(i,j): 179 0
+Rank: 65, Coords(i,j): 8 1, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 8
+Rank: 66, Coords(i,j): 8 2, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 15
+Rank: 67, Coords(i,j): 8 3, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 21
+Rank: 68, Coords(i,j): 8 4, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 27
+Rank: 69, Coords(i,j): 8 5, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 33
+Rank: 70, Coords(i,j): 8 6, Size(i,j): 202 52, Target Size(i,j): 23 6 Starts(i,j): 179 39
+Rank: 71, Coords(i,j): 8 7, Size(i,j): 202 52, Target Size(i,j): 23 7 Starts(i,j): 179 45

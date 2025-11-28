@@ -1,6 +1,6 @@
 #!/bin/bash
 
-t=10
+t=72
 
 make clean
 make
