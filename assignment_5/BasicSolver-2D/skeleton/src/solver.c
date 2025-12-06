@@ -894,7 +894,7 @@ void setSpecialBoundaryCondition(Solver *solver)
     {
         // TODO
         double ylength = solver->ylength;
-        for (int j = 1; j < jmaxLocal; j++)
+        for (int j = 1; j < jmaxLocal + 1; j++)
         {
             int globalJ = (solver->coords[JDIM] * solver->jmaxLocal) + j;
             double y = solver->dy * (globalJ - 0.5);
