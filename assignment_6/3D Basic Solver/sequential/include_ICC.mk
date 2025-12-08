@@ -1,4 +1,4 @@
-CC   = icc
+CC   = icx
 GCC  = gcc
 LINKER = $(CC)
 
