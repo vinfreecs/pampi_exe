@@ -40,8 +40,8 @@ static void setupCommunication(Comm *c, Direction direction, int layer) {
   sizes[JDIM] = jmaxLocal + 2;
   sizes[IDIM] = imaxLocal + 2;
 
-  int subSizes[NDIMS];
-  int starts[NDIMS];
+  int subSizes[NDIMS] = {1, 1, 1};
+  int starts[NDIMS] = {1, 1, 1};
 
   switch (direction) {
 
@@ -130,12 +130,13 @@ static void assembleResult(Comm *c, double *src, double *dst, int imaxLocal[],
       MPI_Datatype domainType;
       int oldSizes[NDIMS] = {kmax, jmax, imax};
       int newSizes[NDIMS] = {kmaxLocal[i], jmaxLocal[i], imaxLocal[i]};
-      int coords[NDIMS];
       int starts[NDIMS];
-      starts[KDIM] = offset[i * NDIMS + KDIM];
-      starts[JDIM] = offset[i * NDIMS + JDIM];
-      starts[IDIM] = offset[i * NDIMS + IDIM];
-      MPI_Cart_coords(c->comm, i, NDIMS, coords);
+      // offset[i * NDIMS + IDIM] = sum(imaxLocalAll, coords[ICORD]);
+      // offset[i * NDIMS + JDIM] = sum(jmaxLocalAll, coords[JCORD]);
+      // offset[i * NDIMS + KDIM] = sum(kmaxLocalAll, coords[KCORD]);
+      starts[KCORD] = offset[i * NDIMS + KDIM];
+      starts[JCORD] = offset[i * NDIMS + JDIM];
+      starts[ICORD] = offset[i * NDIMS + IDIM];
       printf("Rank %d: Creating subarray with:\n", i);
       printf("  oldSizes (global): [%d, %d, %d]\n", oldSizes[0], oldSizes[1],
              oldSizes[2]);
@@ -301,23 +302,9 @@ void commCollectResult(Comm *c, double *ug, double *vg, double *wg, double *pg,
     for (int i = 0; i < c->size; i++) {
       int coords[NCORDS];
       MPI_Cart_coords(c->comm, i, NDIMS, coords);
-
-      // Calculate offset by summing sizes in each dimension up to this
-      // coordinate
-      offset[i * NDIMS + KDIM] = 0;
-      for (int k = 0; k < coords[KCORD]; k++) {
-        offset[i * NDIMS + KDIM] += sizeOfRank(k, c->dims[KDIM], kmax);
-      }
-
-      offset[i * NDIMS + JDIM] = 0;
-      for (int j = 0; j < coords[JCORD]; j++) {
-        offset[i * NDIMS + JDIM] += sizeOfRank(j, c->dims[JDIM], jmax);
-      }
-
-      offset[i * NDIMS + IDIM] = 0;
-      for (int ii = 0; ii < coords[ICORD]; ii++) {
-        offset[i * NDIMS + IDIM] += sizeOfRank(ii, c->dims[IDIM], imax);
-      }
+      offset[i * NDIMS + IDIM] = sum(imaxLocalAll, coords[ICORD]);
+      offset[i * NDIMS + JDIM] = sum(jmaxLocalAll, coords[JCORD]);
+      offset[i * NDIMS + KDIM] = sum(kmaxLocalAll, coords[KCORD]);
       printf("Rank: %d, Coords(k,j,i): %d %d %d, Size(k,j,i): %d %d %d, "
              "Offset(k,j,i): %d %d %d\n",
              i, coords[KCORD], coords[JCORD], coords[ICORD], kmaxLocalAll[i],
@@ -510,22 +497,23 @@ void commPartition(Comm *c, int kmax, int jmax, int imax) {
 void commGetOffsets(Comm *c, int offsets[], int kmax, int jmax, int imax) {
 #if defined(_MPI)
   int sum = 0;
-  for (int i = 0; i < c->coords[0]; i++) {
-    sum += sizeOfRank(i, c->dims[0], kmax);
-  }
-  offsets[KDIM] = sum;
 
-  sum = 0;
-  for (int j = 0; j < c->coords[1]; j++) {
-    sum += sizeOfRank(j, c->dims[1], jmax);
-  }
-  offsets[JDIM] = sum;
-
-  sum = 0;
-  for (int i = 0; i < c->coords[2]; i++) {
-    sum += sizeOfRank(i, c->dims[2], imax);
+  for (int i = 0; i < c->coords[ICORD]; i++) {
+    sum += sizeOfRank(i, c->dims[ICORD], imax);
   }
   offsets[IDIM] = sum;
+  sum = 0;
+
+  for (int i = 0; i < c->coords[JCORD]; i++) {
+    sum += sizeOfRank(i, c->dims[JCORD], jmax);
+  }
+  offsets[JDIM] = sum;
+  sum = 0;
+
+  for (int i = 0; i < c->coords[KCORD]; i++) {
+    sum += sizeOfRank(i, c->dims[KCORD], kmax);
+  }
+  offsets[KDIM] = sum;
 #endif
 }
 
