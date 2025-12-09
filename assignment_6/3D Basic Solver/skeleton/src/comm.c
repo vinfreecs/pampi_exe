@@ -131,12 +131,9 @@ static void assembleResult(Comm *c, double *src, double *dst, int imaxLocal[],
       int oldSizes[NDIMS] = {kmax, jmax, imax};
       int newSizes[NDIMS] = {kmaxLocal[i], jmaxLocal[i], imaxLocal[i]};
       int starts[NDIMS];
-      // offset[i * NDIMS + IDIM] = sum(imaxLocalAll, coords[ICORD]);
-      // offset[i * NDIMS + JDIM] = sum(jmaxLocalAll, coords[JCORD]);
-      // offset[i * NDIMS + KDIM] = sum(kmaxLocalAll, coords[KCORD]);
-      starts[KCORD] = offset[i * NDIMS + KDIM];
-      starts[JCORD] = offset[i * NDIMS + JDIM];
-      starts[ICORD] = offset[i * NDIMS + IDIM];
+      starts[KDIM] = offset[i * NDIMS + KDIM];
+      starts[JDIM] = offset[i * NDIMS + JDIM];
+      starts[IDIM] = offset[i * NDIMS + IDIM];
       printf("Rank %d: Creating subarray with:\n", i);
       printf("  oldSizes (global): [%d, %d, %d]\n", oldSizes[0], oldSizes[1],
              oldSizes[2]);
@@ -470,9 +467,9 @@ void commPartition(Comm *c, int kmax, int jmax, int imax) {
 
   MPI_Cart_get(c->comm, NDIMS, c->dims, periods, c->coords);
 
-  c->kmaxLocal = sizeOfRank(c->coords[0], dims[0], kmax);
-  c->jmaxLocal = sizeOfRank(c->coords[1], dims[1], jmax);
-  c->imaxLocal = sizeOfRank(c->coords[2], dims[2], imax);
+  c->imaxLocal = sizeOfRank(c->coords[ICORD], dims[ICORD], imax);
+  c->jmaxLocal = sizeOfRank(c->coords[JCORD], dims[JCORD], jmax);
+  c->kmaxLocal = sizeOfRank(c->coords[KCORD], dims[KCORD], kmax);
   // setup buffer types for communication
   setupCommunication(c, LEFT, BULK);
   setupCommunication(c, LEFT, HALO);
