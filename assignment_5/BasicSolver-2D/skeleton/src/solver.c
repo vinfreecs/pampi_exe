@@ -174,7 +174,7 @@ void shift(Solver *solver)
     /* TODO shift (send) g ghost layer from bottom to top */
     double *f = solver->f;
     double *g = solver->g;
-
+    //MISTAKE TODO
     MPI_Request requests[4] = {MPI_REQUEST_NULL,
                                MPI_REQUEST_NULL,
                                MPI_REQUEST_NULL,
@@ -320,6 +320,7 @@ static void assembleResult(Solver *solver, double *src, double *dst)
             /* Refer to lecture slides for more information                       */
             /* Create a subarray in domainType object declared above              */
             /* Use oldSizes, newSizes and starts defined above                    */
+            //MISTAKE TODO
             MPI_Type_create_subarray(NDIMS, oldSizes, newSizes, starts, MPI_ORDER_C, MPI_DOUBLE, &domainTypes[i]);
 
             MPI_Type_commit(&domainTypes[i]);
