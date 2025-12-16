@@ -6,24 +6,29 @@
  */
 #ifndef __VTKWRITER_H_
 #define __VTKWRITER_H_
-#include <stdio.h>
-
+#include "comm.h"
 #include "grid.h"
+#include "mpi.h"
+#include <stdio.h>
 
 typedef enum VtkFormat { ASCII = 0, BINARY } VtkFormat;
 
 typedef struct VtkOptions {
-    VtkFormat fmt;
-    Grid grid;
-    FILE* fh;
+  VtkFormat fmt;
+  Grid grid;
+  FILE *fh;
+  Comm comm;
+#if defined(_MPI)
+  MPI_File handle;
+#endif
 } VtkOptions;
 
 typedef struct VtkVector {
-    double *u, *v, *w;
+  double *u, *v, *w;
 } VtkVector;
 
-extern void vtkOpen(VtkOptions* opts, char* filename);
-extern void vtkVector(VtkOptions* opts, char* name, VtkVector vec);
-extern void vtkScalar(VtkOptions* opts, char* name, double* p);
-extern void vtkClose(VtkOptions* opts);
+extern void vtkOpen(VtkOptions *opts, char *filename);
+extern void vtkVector(VtkOptions *opts, char *name, VtkVector vec);
+extern void vtkScalar(VtkOptions *opts, char *name, double *p);
+extern void vtkClose(VtkOptions *opts);
 #endif // __VTKWRITER_H_

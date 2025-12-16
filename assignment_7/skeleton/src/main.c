@@ -16,93 +16,98 @@
 #include "timing.h"
 #include "vtkWriter.h"
 
-int main(int argc, char** argv)
-{
-    double timeStart, timeStop;
-    Parameter p;
-    Solver s;
+int main(int argc, char **argv) {
+  double timeStart, timeStop;
+  Parameter p;
+  Solver s;
 
-    commInit(&s.comm, argc, argv);
-    initParameter(&p);
+  commInit(&s.comm, argc, argv);
+  initParameter(&p);
 
-    if (argc != 2) {
-        printf("Usage: %s <configFile>\n", argv[0]);
-        exit(EXIT_SUCCESS);
-    }
+  if (argc != 2) {
+    printf("Usage: %s <configFile>\n", argv[0]);
+    exit(EXIT_SUCCESS);
+  }
 
-    readParameter(&p, argv[1]);
-    commPartition(&s.comm, p.kmax, p.jmax, p.imax);
-    if (commIsMaster(&s.comm)) {
-        printParameter(&p);
-    }
-    initSolver(&s, &p);
+  readParameter(&p, argv[1]);
+  commPartition(&s.comm, p.kmax, p.jmax, p.imax);
+  if (commIsMaster(&s.comm)) {
+    printParameter(&p);
+  }
+  initSolver(&s, &p);
 #ifndef VERBOSE
-    initProgress(s.te);
+  initProgress(s.te);
 #endif
 
-    double tau = s.tau;
-    double te  = s.te;
-    double t   = 0.0;
+  double tau = s.tau;
+  double te = s.te;
+  double t = 0.0;
 
-    timeStart = getTimeStamp();
-    while (t <= te) {
-        if (tau > 0.0) computeTimestep(&s);
-        setBoundaryConditions(&s);
-        setSpecialBoundaryCondition(&s);
-        computeFG(&s);
-        computeRHS(&s);
-        solve(&s);
-        adaptUV(&s);
-        t += s.dt;
+  timeStart = getTimeStamp();
+  while (t <= te) {
+    if (tau > 0.0)
+      computeTimestep(&s);
+    setBoundaryConditions(&s);
+    setSpecialBoundaryCondition(&s);
+    computeFG(&s);
+    computeRHS(&s);
+    solve(&s);
+    adaptUV(&s);
+    t += s.dt;
 
 #ifdef VERBOSE
-        if (commIsMaster(&s.comm)) {
-            printf("TIME %f , TIMESTEP %f\n", t, s.dt);
-        }
+    if (commIsMaster(&s.comm)) {
+      printf("TIME %f , TIMESTEP %f\n", t, s.dt);
+    }
 #else
-        printProgress(t);
+    printProgress(t);
 #endif
-    }
-    timeStop = getTimeStamp();
+  }
+  timeStop = getTimeStamp();
 #ifndef VERBOSE
-    stopProgress();
+  stopProgress();
 #endif
-    if (commIsMaster(&s.comm)) {
-        printf("Solution took %.2fs\n", timeStop - timeStart);
-    }
+  if (commIsMaster(&s.comm)) {
+    printf("Solution took %.2fs\n", timeStop - timeStart);
+  }
 
-    double *pg, *ug, *vg, *wg;
+  // no neead to create or collect all the data ig
+  // double *pg, *ug, *vg, *wg;
+  // if (commIsMaster(&s.comm)) {
+  //     size_t bytesize = s.grid.imax * s.grid.jmax * s.grid.kmax *
+  //     sizeof(double);
+  //     pg = allocate(64, bytesize);
+  //     ug = allocate(64, bytesize);
+  //     vg = allocate(64, bytesize);
+  //     wg = allocate(64, bytesize);
+  // }
+  // commCollectResult(&s.comm,
+  //     ug,
+  //     vg,
+  //     wg,
+  //     pg,
+  //     s.u,
+  //     s.v,
+  //     s.w,
+  //     s.p,
+  //     s.grid.kmax,
+  //     s.grid.jmax,
+  //     s.grid.imax);
+  //   if (commIsMaster(&s.comm)) {
+  //     VtkOptions opts = {.grid = s.grid};
+  //     vtkOpen(&opts, s.problem);
+  //     vtkScalar(&opts, "pressure", pg);
+  //     vtkVector(&opts, "velocity", (VtkVector){ug, vg, wg});
+  //     vtkClose(&opts);
+  //   }
 
-    if (commIsMaster(&s.comm)) {
-        size_t bytesize = s.grid.imax * s.grid.jmax * s.grid.kmax * sizeof(double);
+  // passing comm for all the rank size and rank's local dimensions
+  VtkOptions opts = {.grid = s.grid, .comm = s.comm};
+  vtkOpen(&opts, s.problem);
+  vtkScalar(&opts, "pressure", s.p);
+  vtkVector(&opts, "velocity", (VtkVector){s.u, s.v, s.w});
+  vtkClose(&opts);
 
-        pg = allocate(64, bytesize);
-        ug = allocate(64, bytesize);
-        vg = allocate(64, bytesize);
-        wg = allocate(64, bytesize);
-    }
-
-    commCollectResult(&s.comm,
-        ug,
-        vg,
-        wg,
-        pg,
-        s.u,
-        s.v,
-        s.w,
-        s.p,
-        s.grid.kmax,
-        s.grid.jmax,
-        s.grid.imax);
-
-    if (commIsMaster(&s.comm)) {
-        VtkOptions opts = { .grid = s.grid };
-        vtkOpen(&opts, s.problem);
-        vtkScalar(&opts, "pressure", pg);
-        vtkVector(&opts, "velocity", (VtkVector) { ug, vg, wg });
-        vtkClose(&opts);
-    }
-
-    commFinalize(&s.comm);
-    return EXIT_SUCCESS;
+  commFinalize(&s.comm);
+  return EXIT_SUCCESS;
 }
