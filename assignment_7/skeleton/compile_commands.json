@@ -1,0 +1,54 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-D_MPI",
+      "-D_GNU_SOURCE",
+      "-DARRAY_ALIGNMENT=64",
+      "-DVERBOSE",
+      "-I/opt/homebrew/include",
+      "-I./src",
+      "-I./CLANG",
+      "-Ofast",
+      "-std=c17",
+      "-I/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/include",
+      "-I",
+      "/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0//include",
+      "-I",
+      "/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/lib/oclfpga/include",
+      "-o",
+      "CLANG/comm.o",
+      "./src/comm.c"
+    ],
+    "directory": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton",
+    "file": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton/src/comm.c",
+    "output": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton/CLANG/comm.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-D_MPI",
+      "-D_GNU_SOURCE",
+      "-DARRAY_ALIGNMENT=64",
+      "-DVERBOSE",
+      "-I/opt/homebrew/include",
+      "-I./src",
+      "-I./CLANG",
+      "-Ofast",
+      "-std=c17",
+      "-I/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0/include",
+      "-I",
+      "/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-mpi-2021.10.0-ki6gcj4pr5rekayazvm4lsmvcyosce25/mpi/2021.10.0//include",
+      "-I",
+      "/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/lib/oclfpga/include",
+      "-o",
+      "CLANG/vtkWriter.o",
+      "./src/vtkWriter.c"
+    ],
+    "directory": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton",
+    "file": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton/src/vtkWriter.c",
+    "output": "/home/hpc/pavl/pavl166v/pampi_exe/assignment_7/skeleton/CLANG/vtkWriter.o"
+  }
+]
