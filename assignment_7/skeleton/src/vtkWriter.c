@@ -71,19 +71,42 @@ static void writeHeader(VtkOptions *o) {
 }
 
 void vtkOpen(VtkOptions *o, char *problem) {
-
-  // Open the vtk file using MPI IO
-  // Use MPI_File_open() in CREATE or WRONLY mode
-
   char filename[50];
+  snprintf(filename, 50, "/lustre/pavl/pavl166v/%s.vtk", problem);
 
-  snprintf(filename, 50, "%s.vtk", problem);
-  // o->fh = fopen(filename, "w");
-  MPI_File_open(MPI_COMM_WORLD, filename, MPI_MODE_CREATE | MPI_MODE_WRONLY,
-                MPI_INFO_NULL, &o->handle);
-  writeHeader(o);
+  MPI_Info info;
+  MPI_Info_create(&info);
+  // Hint: stripe over 10 I/O devices
+  MPI_Info_set(info, "striping_factor", "10");
+  MPI_File_open(o->comm.comm, filename, MPI_MODE_CREATE | MPI_MODE_WRONLY, info,
+                &o->handle);
+  MPI_Info_free(&info);
+  // Rank 0 writes header using MPI_File_write
+  if (o->comm.rank == 0) {
+    char header[512];
+    int len =
+        snprintf(header, 512,
+                 "# vtk DataFile Version 3.0\n"
+                 "PAMPI cfd solver output\n"
+                 "%s\n"
+                 "DATASET STRUCTURED_POINTS\n"
+                 "DIMENSIONS %d %d %d\n"
+                 "ORIGIN %f %f %f\n"
+                 "SPACING %f %f %f\n"
+                 "POINT_DATA %d\n",
+                 (o->fmt == BINARY) ? "BINARY" : "ASCII", o->grid.imax,
+                 o->grid.jmax, o->grid.kmax, o->grid.dx * 0.5, o->grid.dy * 0.5,
+                 o->grid.dz * 0.5, o->grid.dx, o->grid.dy, o->grid.dz,
+                 o->grid.imax * o->grid.jmax * o->grid.kmax);
 
-  printf("Writing VTK output for %s\n", problem);
+    MPI_File_write(o->handle, header, len, MPI_CHAR, MPI_STATUS_IGNORE);
+  }
+
+  MPI_Barrier(o->comm.comm);
+
+  if (commIsMaster(&o->comm)) {
+    printf("Writing VTK output for %s\n", problem);
+  }
 }
 
 // TODO verfiy if this also should be changed
@@ -122,15 +145,20 @@ void vtkScalar(VtkOptions *o, char *name, double *s) {
   // Steps to perform MPI IO
   // 1. Use resetFileview(o); here before starting MPI IO
   resetFileview(o);
-  printf("Register scalar %s\n", name);
-  if (!isInitialized(o->fh))
-    return;
+  if (o->comm.rank == 0) {
+    printf("Register scalar %s\n", name);
+  }
+  // if (!isInitialized(o->fh))
+  //   return;
 
   // Make sure this is only written by rank 0.
   if (o->comm.rank == 0) {
-    fprintf(o->fh, "SCALARS %s double 1\n", name);
-    fprintf(o->fh, "LOOKUP_TABLE default\n");
+    char header[256];
+    int len = snprintf(header, 256,
+                       "SCALARS %s double 1\nLOOKUP_TABLE default\n", name);
+    MPI_File_write(o->handle, header, len, MPI_CHAR, MPI_STATUS_IGNORE);
   }
+  MPI_Barrier(o->comm.comm);
 
   // 2. Get offsets from all ranks using commGetOffsets from comm.c. This will
   // be
@@ -224,12 +252,19 @@ void vtkVector(VtkOptions *o, char *name, VtkVector vec) {
   // 1. Use resetFileview(o); here before starting MPI IO
   resetFileview(o);
 
-  printf("Register vector %s\n", name);
-  if (!isInitialized(o->fh))
-    return;
+  if (o->comm.rank == 0) {
+    printf("Register vector %s\n", name);
+  }
+  // if (!isInitialized(o->fh))
+  //   return;
 
   // Make sure this is only written by rank 0.
-  fprintf(o->fh, "VECTORS %s double\n", name);
+  if (o->comm.rank == 0) {
+    char header[256];
+    int len = snprintf(header, 256, "VECTORS %s double\n", name);
+    MPI_File_write(o->handle, header, len, MPI_CHAR, MPI_STATUS_IGNORE);
+  }
+  MPI_Barrier(o->comm.comm);
 
   // 2. Get offsets from all ranks using commGetOffsets from comm.c. This will
   // be
@@ -287,6 +322,7 @@ void vtkVector(VtkOptions *o, char *name, VtkVector vec) {
 }
 
 void vtkClose(VtkOptions *o) {
-  fclose(o->fh);
-  o->fh = NULL;
+  // fclose(o->fh);
+  // o->fh = NULL;
+  MPI_File_close(&o->handle);
 }
